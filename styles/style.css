@@ -97,6 +97,34 @@
   background-size: cover;
 }
 
+.content__card:nth-of-type(2) .card__cover-image {
+  background-image: url(https://picsum.photos/700?random=1);
+}
+
+.content__card:nth-of-type(3) .card__cover-image {
+  background-image: url(https://picsum.photos/700?random=2);
+}
+
+.content__card:nth-of-type(4) .card__cover-image {
+  background-image: url(https://picsum.photos/700?random=3);
+}
+
+.content__card:nth-of-type(5) .card__cover-image {
+  background-image: url(https://picsum.photos/700?random=4);
+}
+
+.content__card:nth-of-type(6) .card__cover-image {
+  background-image: url(https://picsum.photos/700?random=5);
+}
+
+.content__card:nth-of-type(7) .card__cover-image {
+  background-image: url(https://picsum.photos/70?random=6);
+}
+
+.content__card:nth-of-type(8) .card__cover-image {
+  background-image: url(https://picsum.photos/700?random=7);
+}
+
 .card__cover-label {
   font-family: var(--accent-font);
   font-size: 14px;
@@ -127,12 +155,7 @@
   margin: 0 25px 25px;
 }
 
-.card__like-button {
-  font-family: var(--accent-font);
-  font-size: 14px;
-  line-height: 90%;
-  background-color: transparent;
-  border: none;
+.card__buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -141,8 +164,15 @@
   margin: 0 25px 25px auto;
 }
 
-.button__text {
+.card__like-button {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 90%;
   padding: 0.9em 2.6em;
+}
+
+.card__icon-button {
+  border: none;
 }
 
 .border {
@@ -162,37 +192,38 @@
   gap: 8px;
   padding: 15px 18px;
   margin-block-end: 100px;
+  background-color: #fff;
 }
 
 .content__save-button .button__text {
   padding: 0;
 }
 
-.content__card:nth-of-type(2) .card__cover-image {
+.grayscaled {
   filter: grayscale(80%);
 }
 
-.content__card:nth-of-type(3) .card__cover-image {
+.saturated {
   filter: saturate(5);
 }
 
-.content__card:nth-of-type(4) .card__cover-image {
+.hued {
   filter: hue-rotate(40deg);
 }
 
-.content__card:nth-of-type(5) .card__cover-image {
+.inverted {
   filter: invert(80%);
 }
 
-.content__card:nth-of-type(6) .card__cover-image {
+.sepia {
   filter: sepia(80%);
 }
 
-.content__card:nth-of-type(7) .card__cover-image {
+.blurred {
   filter: blur(10px);
 }
 
-.content__card:nth-of-type(8) .card__cover-image {
+.hued__low-contrast {
   filter: hue-rotate(80deg) contrast(50%);
 }
 

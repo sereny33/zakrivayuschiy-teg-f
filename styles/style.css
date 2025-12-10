@@ -23,6 +23,7 @@
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 100px;
 }
@@ -55,6 +56,11 @@
 
 .content {
   inline-size: var(--content-inline-size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
 
 .content__card {
@@ -101,6 +107,7 @@
   z-index: 1;
   opacity: 50%;
   text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  mix-blend-mode: hard-light;
 }
 
 @supports(-webkit-text-stroke: 1px #fff) {
@@ -144,6 +151,21 @@
 
 .border-bottom {
   border-block-end: 2px solid #000 ;
+}
+
+.content__save-button {
+  font-family: var(--accent-font);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 18px;
+  margin-block-end: 100px;
+}
+
+.content__save-button .button__text {
+  padding: 0;
 }
 
 

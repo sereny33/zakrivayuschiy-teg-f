@@ -156,7 +156,6 @@
 
 .content__save-button {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -168,6 +167,11 @@
 
 .content__save-button .button__text {
   padding: 0;
+}
+
+.floppy-icon {
+  width: 21px;
+  height: 21px;
 }
 
 .grayscaled {
@@ -230,7 +234,22 @@ body:has(.save-dialog[open]) {
   font-family: var(--accent-font);
 }
 
+.save-dialog .floppy-icon {
+  width: initial;
+  height: initial;
+}
 .dialog__save-button {
   grid-column: 1 / 3;
   margin-block-end: 0;
+}
+
+@media (width <= 375px) {
+  .content__save-button {
+    flex-direction: column;
+  }
+
+  .floppy-icon {
+    width: 28px;
+    height: 28px;
+  }
 }

@@ -168,4 +168,33 @@
   padding: 0;
 }
 
+.content__card:nth-of-type(2) .card__cover-image {
+  filter: grayscale(80%);
+}
+
+.content__card:nth-of-type(3) .card__cover-image {
+  filter: saturate(5);
+}
+
+.content__card:nth-of-type(4) .card__cover-image {
+  filter: hue-rotate(40deg);
+}
+
+.content__card:nth-of-type(5) .card__cover-image {
+  filter: invert(80%);
+}
+
+.content__card:nth-of-type(6) .card__cover-image {
+  filter: sepia(80%);
+}
+
+.content__card:nth-of-type(7) .card__cover-image {
+  filter: blur(10px);
+}
+
+.content__card:nth-of-type(8) .card__cover-image {
+  filter: hue-rotate(80deg) contrast(50%);
+}
+
+
 

@@ -129,24 +129,38 @@
 .card__buttons {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   gap: 12px;
   align-self: flex-end;
+  max-height: 38px;
   margin: 0 25px 25px auto;
 }
 
 .card__like-button {
-  padding: 10px 35px;
+  overflow: hidden;
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 90%;
   transition: box-shadow 0.3s;
-  overflow: hidden;
 }
 
 .card__icon-button {
+  border: 2px solid transparent;
   padding: 0;
-  border: none;
+  transition: border 0.3s ease;
+}
+
+.card__icon-button svg {
+  width: 39px;
+  height: 36px;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color);
 }
 
 .border {
@@ -158,32 +172,22 @@
 }
 
 .content__save-button {
-  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   margin-block-end: 100px;
   padding: 15px 18px;
+  overflow: hidden;
+  color: #fff;
   font-family: var(--accent-font);
+  font-size: 14px;
   background-color: #fff;
   transition: box-shadow 0.3s;
-  overflow: hidden;
 }
 
 .content__save-button .button__text {
   padding: 0;
-
-}
-
-.floppy-icon {
-  width: 21px;
-  height: 21px;
-  z-index: 2;
-  stroke: #fff;
-  fill: #fff;
-  position: relative;
-  mix-blend-mode: difference;
 }
 
 .grayscaled {
@@ -234,7 +238,7 @@ body:has(.save-dialog[open]) {
 }
 
 .save-dialog::backdrop {
-  backdrop-filter: brightness(.3);
+  backdrop-filter: brightness(0.3);
 }
 
 .save-dialog__description {
@@ -248,43 +252,48 @@ body:has(.save-dialog[open]) {
 }
 
 .save-dialog .floppy-icon {
+  align-self: center;
   width: initial;
   height: initial;
 }
 .dialog__save-button {
   grid-column: 1 / 3;
   margin-block-end: 0;
-  transition: box-shadow 0.3s;
   overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.floppy {
+  position: relative;
+  z-index: 2;
+  width: 21px;
+  mix-blend-mode: difference;
 }
 
 /* Переходы кнопок */
 
 .card__like-button,
 .content__save-button,
-.dialog__save-button{
+.dialog__save-button {
   position: relative;
 }
 
 .card__like-button:focus,
 .content__save-button:focus,
 .dialog__save-button:focus {
+  box-shadow: 2px 2px 0 var(--accent-color);
   outline: none;
-  box-shadow: 2px 2px 0 #000;
 }
 
 .card__like-button::after,
 .content__save-button::after,
 .dialog__save-button::after {
-  content: '';
-  display: inline-block;
+  content: "";
   position: absolute;
-  inset: -50%;
-  width: 500px;
-  height: 500px;
-  background-color: #000;
-  transform: translateX(-100%);
+  inset: 0;
+  background-color: var(--accent-color);
   transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
 }
 
 .card__like-button:hover::after,
@@ -294,10 +303,91 @@ body:has(.save-dialog[open]) {
 }
 
 .button__text {
+  position: relative;
   z-index: 2;
   color: #fff;
-  position: relative;
   mix-blend-mode: difference;
+}
+
+/* Анимация сердца */
+
+.core,
+.main-body {
+  fill: transparent;
+  transition: fill linear 0.3s;
+}
+
+.core {
+  transition-delay: 0.03s;
+}
+
+.contour {
+  fill: var(--animation-contour-color);
+  transition: fill linear 0.1s;
+}
+
+.sparks {
+  opacity: 0%;
+  fill: var(--animation-fill-color);
+}
+
+/* Like-icon hover*/
+
+.like-icon:hover .core {
+  fill: var(--animation-contour-color);
+  transition-delay: none;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--animation-contour-color);
+  transition-delay: 0.05s;
+}
+
+/* Like-icon active*/
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition-delay: none;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.05s;
+}
+
+/* Like-icon click */
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition-delay: none;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s;
+}
+
+.like-icon.is-liked .heart {
+  animation: enlarge 0.3s ease-in 0.1s;
+}
+
+/* Движение сердца */
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s;
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: enlarge 0.3s ease-in 0.1s;
 }
 
 @media (width <= 375px) {
@@ -313,8 +403,7 @@ body:has(.save-dialog[open]) {
     flex-direction: column;
   }
 
-  .floppy-icon {
+  .floppy {
     width: 28px;
-    height: 28px;
   }
 }

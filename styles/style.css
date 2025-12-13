@@ -340,7 +340,7 @@ body:has(.save-dialog[open]) {
 
 .like-icon:hover .core {
   fill: var(--animation-contour-color);
-  transition-delay: none;
+  transition-delay: 0s;
 }
 
 .like-icon:hover .main-body {
@@ -352,7 +352,7 @@ body:has(.save-dialog[open]) {
 
 .like-icon:active .core {
   fill: var(--animation-fill-color);
-  transition-delay: none;
+  transition-delay: 0s;
 }
 
 .like-icon:active .main-body {
@@ -364,7 +364,7 @@ body:has(.save-dialog[open]) {
 
 .like-icon.is-liked .core {
   fill: var(--animation-fill-color);
-  transition-delay: none;
+  transition-delay: 0s;
 }
 
 .like-icon.is-liked .main-body {

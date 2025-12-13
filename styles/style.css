@@ -24,7 +24,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: var(--main-font-410);
+  font-variation-settings: var(--main-font-regular);
 }
 
 .content-inline-size {
@@ -78,7 +78,7 @@
 .card__heading {
   padding: 4px 10px;
   font-size: 18px;
-  font-variation-settings: var(--main-font-715);
+  font-variation-settings: var(--main-font-bold);
 }
 
 .card__cover {

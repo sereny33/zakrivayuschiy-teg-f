@@ -135,7 +135,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  position: relative;
   overflow: hidden;
   color: #fff;
   font-family: var(--accent-font);
@@ -144,12 +144,40 @@
   background-color: #fff;
 }
 
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.button::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.button:hover::after {
+  transform: translateX(0%);
+}
+
+.button__text {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: difference;
+}
+
 .card__like-button {
   width: 130px;
   transition: box-shadow 0.3s;
 }
 
 .card__icon-button {
+  padding: 0;
   border: 2px solid transparent;
   transition: border 0.3s ease;
 }
@@ -264,49 +292,6 @@ body:has(.save-dialog[open]) {
   position: relative;
   z-index: 2;
   width: 21px;
-  mix-blend-mode: difference;
-}
-
-/* Переходы кнопок */
-
-.card__like-button,
-.content__save-button,
-.dialog__save-button {
-  position: relative;
-}
-
-.card__like-button:focus,
-.content__save-button:focus,
-.dialog__save-button:focus {
-  outline: none;
-}
-
-.card__like-button:focus-visible,
-.content__save-button:focus-visible,
-.dialog__save-button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color);
-}
-
-.card__like-button::after,
-.content__save-button::after,
-.dialog__save-button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--accent-color);
-  transition: transform 0.5s ease-in-out;
-  transform: translateX(-100%);
-}
-
-.card__like-button:hover::after,
-.content__save-button:hover::after,
-.dialog__save-button:hover::after {
-  transform: translateX(0%);
-}
-
-.button__text {
-  position: relative;
-  z-index: 2;
   mix-blend-mode: difference;
 }
 

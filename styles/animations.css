@@ -10,7 +10,7 @@
 
 */
 
-@keyframes enlarge {
+@keyframes scaleUp {
   0% {
     transform: scale(1);
   }
@@ -20,7 +20,7 @@
   }
 }
 
-@keyframes sparks {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }

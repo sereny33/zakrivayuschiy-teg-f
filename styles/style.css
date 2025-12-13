@@ -132,10 +132,10 @@
 }
 
 .button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   overflow: hidden;
   color: #fff;
   font-family: var(--accent-font);
@@ -152,7 +152,7 @@
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.button::after{
+.button::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -177,8 +177,8 @@
 }
 
 .card__icon-button {
-  padding: 0;
   border: 2px solid transparent;
+  padding: 0;
   transition: border 0.3s ease;
 }
 
